@@ -73,10 +73,7 @@ class ErrorInterceptor extends Interceptor {
     if (statusCode >= 400 && statusCode <= 500) {
       switch (statusCode) {
         case 400:
-          return _clientSideException(
-            message ?? "The request couldn't be processed.",
-            statusCode,
-          );
+          return BadRequestException();
         case 401:
           return const UnauthorizedException();
         case 403:
@@ -92,10 +89,7 @@ class ErrorInterceptor extends Interceptor {
             422,
           );
         case 429:
-          return _clientSideException(
-            "Too many requests. Please wait a moment and try again.",
-            429,
-          );
+          return RateLimitException();
         default:
           return _clientSideException(
             "The request couldn't be completed.",
