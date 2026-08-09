@@ -5,9 +5,9 @@ abstract class ApiConstants {
   static const baseUrl = "https://ecom-rs8e.onrender.com/api";
 
   // Timeouts
-  static const connectionTimeout = Duration(seconds: 5);
-  static const receiveTimeout = Duration(seconds: 5);
-  static const sendTimeout = Duration(seconds: 5);
+  static const connectionTimeout = Duration(seconds: 30);
+  static const receiveTimeout = Duration(seconds: 30);
+  static const sendTimeout = Duration(seconds: 30);
 
   // Retries
   static const maxRetry = 3;
