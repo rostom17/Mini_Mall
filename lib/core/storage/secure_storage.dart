@@ -3,6 +3,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'secure_storage.g.dart';
 
+@Riverpod(keepAlive: true)
+FlutterSecureStorage secureStorage(Ref ref) => SecureStorage.secureStorage;
+
 abstract class SecureStorage {
   const SecureStorage._();
 
@@ -13,6 +16,3 @@ abstract class SecureStorage {
 
   static FlutterSecureStorage get secureStorage => _storage;
 }
-
-@Riverpod(keepAlive: true)
-FlutterSecureStorage secureStorage(Ref ref) => SecureStorage.secureStorage;
