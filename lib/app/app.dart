@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MiniMall extends StatelessWidget {
+import '/app/router/app_router.dart';
+
+class MiniMall extends ConsumerWidget {
   const MiniMall({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(body: Center(child: Text("Home Page"))),
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp.router(routerConfig: ref.watch(routerProvider));
   }
 }
