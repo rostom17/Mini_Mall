@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
 
 import 'nav_destination.dart';
 
@@ -7,21 +7,21 @@ class AppDestinations {
 
   static const List<NavDestination> destinations = [
     NavDestination(
-      icon: Icons.home,
-      selectedIcon: Icons.home_filled,
+      icon: IconsaxPlusLinear.home_1,
+      selectedIcon: IconsaxPlusBold.home_1,
       label: "Home",
     ),
 
     NavDestination(
-      icon: Icons.shopping_cart_checkout_sharp,
+      icon: IconsaxPlusLinear.shopping_cart,
       label: "Cart",
-      selectedIcon: Icons.shopping_cart_checkout,
+      selectedIcon: IconsaxPlusBold.shopping_cart,
     ),
 
     NavDestination(
-      icon: Icons.person,
-      selectedIcon: Icons.person_2,
-      label: "Profile",
+      icon: IconsaxPlusLinear.user,
+      selectedIcon: IconsaxPlusBold.user,
+      label: "Account",
     ),
   ];
 }
