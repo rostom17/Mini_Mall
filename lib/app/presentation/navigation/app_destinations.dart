@@ -13,6 +13,12 @@ class AppDestinations {
     ),
 
     NavDestination(
+      icon: IconsaxPlusLinear.category_2,
+      selectedIcon: IconsaxPlusBold.category_2,
+      label: "Category",
+    ),
+
+    NavDestination(
       icon: IconsaxPlusLinear.shopping_cart,
       label: "Cart",
       selectedIcon: IconsaxPlusBold.shopping_cart,

@@ -34,6 +34,16 @@ final routerProvider = Provider<GoRouter>((ref) {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                path: RoutePaths.category,
+                name: RouteNames.category,
+                pageBuilder: (context, state) =>
+                    MaterialPage(child: Container(color: Colors.red)),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
                 path: RoutePaths.cart,
                 name: RouteNames.cart,
                 pageBuilder: (context, state) => MaterialPage(

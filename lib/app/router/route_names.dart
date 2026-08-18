@@ -4,8 +4,9 @@ abstract class RouteNames {
   static const splash = "splash";
   static const adaptiveNav = "adaptive-nav";
   static const home = "home";
-  static const profile = "profile";
+  static const category = "category";
   static const cart = "cart";
+  static const profile = "profile";
   static const productDetails = "productDetails";
 }
 
@@ -15,7 +16,8 @@ abstract class RoutePaths {
   static const splash = "/splash";
   static const adaptiveNav = "/adaptive-nav";
   static const home = "/home";
-  static const profile = "/profile";
+  static const category = "/category";
   static const cart = "/cart";
+  static const profile = "/profile";
   static const productDetails = "/product-details";
 }
