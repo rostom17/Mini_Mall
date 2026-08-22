@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mini_mall/app/presentation/navigation/root_shell.dart';
+import 'package:mini_mall/features/products/presentation/screens/home_screen.dart';
 
 import 'route_names.dart';
 
@@ -27,7 +28,7 @@ final routerProvider = Provider<GoRouter>((ref) {
                 path: RoutePaths.home,
                 name: RouteNames.home,
                 pageBuilder: (context, state) =>
-                    MaterialPage(child: Container(color: Colors.amber)),
+                    MaterialPage(child: const HomeScreen()),
               ),
             ],
           ),

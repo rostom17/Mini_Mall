@@ -45,4 +45,7 @@ abstract class ApiConstants {
   static const signup = "/auth/signup";
   static const verifyOtp = "/auth/verify-otp";
   static const profile = "/auth/profile";
+
+  // Placeholder image
+  static const placeHolderImage = "https://dummyjson.com/icon/abc123/150";
 }

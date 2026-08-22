@@ -17,14 +17,11 @@ class AuthInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     final token = await _tokenService.getAccessToken();
-    if (token == null) {
-      _logger.d("Token is null");
-    }
     if (token != null) {
       options.headers[ApiConstants.authorizationHeader] =
           "${ApiConstants.bearer} $token";
-      handler.next(options);
     }
+    handler.next(options);
   }
 
   @override
