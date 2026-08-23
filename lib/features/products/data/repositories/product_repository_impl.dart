@@ -58,6 +58,13 @@ class ProductRepositoryImpl implements ProductRepository {
         pageNo: pageNo,
         pageSize: pageSize,
       );
+
+      _logger.d('''
+            next page no: ${paginatedProducts.nextPageNo},
+            last page no: ${paginatedProducts.lastPageNo},
+            has more: ${paginatedProducts.hasMore},            
+      ''');
+
       return Right(
         Pagination(
           items: paginatedProducts.items.map((e) => e.toEntity()).toList(),

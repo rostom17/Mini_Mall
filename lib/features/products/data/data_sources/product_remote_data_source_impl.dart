@@ -58,8 +58,6 @@ class ProductRemoteDataSrouceImpl implements ProductRemoteDataSource {
     );
 
     try {
-      _logger.d(response.data);
-
       final apiRespose = ApiResponse.fromJson(response.data);
 
       return PaginationModel.fromJson(

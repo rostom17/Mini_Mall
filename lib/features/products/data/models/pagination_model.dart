@@ -11,7 +11,7 @@ class PaginationModel<T> {
     required this.lastPageNo,
   });
 
-  bool get hasMore => nextPageNo == null || lastPageNo == null;
+  bool get hasMore => nextPageNo != null || lastPageNo != null;
 
   factory PaginationModel.fromJson({
     required Map<String, dynamic> json,
