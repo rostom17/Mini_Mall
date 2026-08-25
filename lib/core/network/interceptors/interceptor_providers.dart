@@ -2,7 +2,7 @@ import 'package:logger/logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '/core/storage/token_storage.dart';
-import '/core/network/dio_provider.dart';
+import '../dio_client/dio_provider.dart';
 import 'auth_interceptor.dart';
 import 'error_interceptor.dart';
 import 'retry_interceptor.dart';

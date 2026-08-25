@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:mini_mall/core/errors/exception.dart';
 
+import '/core/errors/exception.dart';
 import '/core/storage/token_storage.dart';
-import '/core/constants/api_constants.dart';
+import '../http_headers.dart';
 
 class AuthInterceptor extends Interceptor {
   const AuthInterceptor({required this._tokenService, required this._logger});
@@ -18,8 +18,8 @@ class AuthInterceptor extends Interceptor {
   ) async {
     final token = await _tokenService.getAccessToken();
     if (token != null) {
-      options.headers[ApiConstants.authorizationHeader] =
-          "${ApiConstants.bearer} $token";
+      options.headers[HttpHeaders.authorizationHeader] =
+          "${HttpHeaders.bearerScheme} $token";
     }
     handler.next(options);
   }

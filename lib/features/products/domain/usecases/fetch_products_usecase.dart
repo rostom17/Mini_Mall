@@ -1,9 +1,9 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:equatable/equatable.dart';
-import 'package:mini_mall/core/constants/api_constants.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:mini_mall/core/errors/failure.dart';
+import 'package:mini_mall/core/network/api_constants.dart';
 import 'package:mini_mall/core/usecase/usecase.dart';
 import 'package:mini_mall/features/products/domain/entities/product.dart';
 import 'package:mini_mall/features/products/domain/entities/pagination.dart';
@@ -40,7 +40,7 @@ class FetchProductsParams extends Equatable {
 
   const FetchProductsParams({
     required this.pageNo,
-    this.pageSize = ApiConstants.pageSize,
+    this.pageSize = ApiConstants.defaultPageSize,
   });
 
   @override

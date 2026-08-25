@@ -2,12 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:mini_mall/core/network/api_endpoints.dart';
 import 'package:mini_mall/core/models/api_response.dart';
-import 'package:mini_mall/core/constants/api_constants.dart';
 import 'package:mini_mall/core/errors/exception.dart';
-import 'package:mini_mall/core/network/dio_provider.dart';
+import 'package:mini_mall/core/network/dio_client/dio_provider.dart';
 import 'package:mini_mall/core/network/interceptors/interceptor_providers.dart';
-import 'package:mini_mall/core/network/network_executor.dart';
+import 'package:mini_mall/core/network/dio_client/network_executor.dart';
 import 'package:mini_mall/features/products/data/data_sources/product_remote_data_source.dart';
 import 'package:mini_mall/features/products/data/models/product_model.dart';
 import 'package:mini_mall/features/products/data/models/pagination_model.dart';
@@ -52,7 +52,7 @@ class ProductRemoteDataSrouceImpl implements ProductRemoteDataSource {
   }) async {
     final response = await _networkExecutor.execute(
       request: () => _dio.get(
-        ApiConstants.products,
+        ApiEndpoints.products,
         queryParameters: {"count": pageSize, "page": pageNo},
       ),
     );

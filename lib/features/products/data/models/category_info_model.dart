@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mini_mall/core/constants/api_constants.dart';
 
+import 'package:mini_mall/core/constants/app_urls.dart';
 import 'package:mini_mall/core/models/entity_convertible.dart';
 import 'package:mini_mall/features/products/domain/entities/category_info.dart';
 
@@ -29,7 +29,7 @@ abstract class CategoryInfoModel
       id: id ?? "No Id",
       title: title ?? "No Title",
       slug: slug ?? "No Slug",
-      icon: icon ?? ApiConstants.placeHolderImage,
+      icon: icon ?? AppUrls.placeHolderImage,
     );
   }
 }

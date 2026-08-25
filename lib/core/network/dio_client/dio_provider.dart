@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '/core/constants/api_constants.dart';
-import 'interceptors/interceptor_providers.dart';
+import '../interceptors/interceptor_providers.dart';
+import '../api_constants.dart';
+import '../http_headers.dart';
 
 part 'dio_provider.g.dart';
 
@@ -19,11 +20,11 @@ Dio retryDio(Ref ref) => createDio([ref.watch(loggerInterceptorProvider)]);
 
 final options = BaseOptions(
   baseUrl: ApiConstants.baseUrl,
-  contentType: ApiConstants.contentTypeHeader,
+  contentType: HttpHeaders.contentTypeHeader,
   connectTimeout: ApiConstants.connectionTimeout,
   sendTimeout: ApiConstants.sendTimeout,
   receiveTimeout: ApiConstants.receiveTimeout,
-  headers: {ApiConstants.acceptHeader: ApiConstants.json},
+  headers: {HttpHeaders.acceptHeader: HttpHeaders.applicationJson},
 );
 
 Dio createDio([List<Interceptor> interceptors = const []]) {

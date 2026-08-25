@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mini_mall/core/constants/api_constants.dart';
 
+import 'package:mini_mall/core/constants/app_urls.dart';
 import 'package:mini_mall/core/models/entity_convertible.dart';
 import 'package:mini_mall/features/products/data/models/brand_info_model.dart';
 import 'package:mini_mall/features/products/data/models/category_info_model.dart';
@@ -49,12 +49,12 @@ abstract class ProductModel
             id: 'unknown_brand',
             title: 'Unknown Brand',
             slug: 'unknown-brand',
-            icon: ApiConstants.placeHolderImage,
+            icon: AppUrls.placeHolderImage,
           ),
       categories: categories?.map((e) => e.toEntity()).toList() ?? [],
       slug: "No Slug",
       description: description ?? "No Description",
-      photos: photos ?? const [ApiConstants.placeHolderImage],
+      photos: photos ?? const [AppUrls.placeHolderImage],
       colors: colors ?? const ["red, greed, blue"],
       sizes: sizes ?? ["m", "l", "xl"],
       tags: tags ?? [],
