@@ -33,9 +33,29 @@ class ProductRepositoryImpl implements ProductRepository {
   final ProductRemoteDataSource _productRemoteDataSource;
 
   @override
-  Future<Either<Failure, Product>> fetchProductById(String id) {
-    // TODO: implement fetchProductById
-    throw UnimplementedError();
+  Future<Either<Failure, Product>> fetchProductById(String id) async {
+    if (!await _connectivityChecker.isConnected) {
+      return const Left(NetworkFailure());
+    }
+
+    try {
+      final response = await _productRemoteDataSource.fetchProductById(id);
+      return Right(response.toEntity());
+    } on AppException catch (e, st) {
+      _logger.e(
+        "Exception at ProductRepositoryImpl during fetchProductById(): ${e.message} : ${e.statusCode}",
+        error: e.message,
+        stackTrace: st,
+      );
+      return Left(e.toFailure());
+    } catch (e, st) {
+      _logger.e(
+        "Unknown error occured at ProductRepositoyImpl during fetchProductById()",
+        error: e,
+        stackTrace: st,
+      );
+      return Left(const UnknownFailure());
+    }
   }
 
   @override
@@ -74,14 +94,15 @@ class ProductRepositoryImpl implements ProductRepository {
       );
     } on AppException catch (e, st) {
       _logger.e(
-        "Exception at ProductRepositoryImpl: ${e.message} : ${e.statusCode}",
+        "Exception at ProductRepositoryImpl during fetchProducts(): ${e.message} : ${e.statusCode}",
         error: e.message,
         stackTrace: st,
       );
       return Left(e.toFailure());
     } catch (e, st) {
       _logger.e(
-        "Unexpected error at ProductRepositoryImpl: $e",
+        "Unexpected error at ProductRepositoryImpl during fetchProducts()",
+        error: e,
         stackTrace: st,
       );
       return const Left(UnknownFailure());

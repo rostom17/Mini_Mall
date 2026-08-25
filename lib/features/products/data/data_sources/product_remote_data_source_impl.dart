@@ -34,9 +34,22 @@ class ProductRemoteDataSrouceImpl implements ProductRemoteDataSource {
   final NetworkExecutor _networkExecutor;
 
   @override
-  Future<ProductModel> fetchProductById(String id) {
-    // TODO: implement fetchProductById
-    throw UnimplementedError();
+  Future<ProductModel> fetchProductById(String id) async {
+    final response = await _networkExecutor.execute(
+      request: () => _dio.get(ApiEndpoints.productById(id)),
+    );
+    try {
+      final apiResponse = ApiResponse.fromJson(response.data);
+      final product = ProductModel.fromJson(apiResponse.data);
+      return product;
+    } catch (e, st) {
+      _logger.e(
+        "Exception at fetching product by id",
+        error: e,
+        stackTrace: st,
+      );
+      throw const ParsingException();
+    }
   }
 
   @override

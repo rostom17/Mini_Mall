@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:mini_mall/app/presentation/navigation/root_shell.dart';
+import 'package:mini_mall/features/products/domain/entities/product.dart';
 import 'package:mini_mall/features/products/presentation/screens/home_screen.dart';
+import 'package:mini_mall/features/products/presentation/screens/product_details_screen.dart';
 
 import 'route_names.dart';
 
@@ -29,6 +32,19 @@ final routerProvider = Provider<GoRouter>((ref) {
                 name: RouteNames.home,
                 pageBuilder: (context, state) =>
                     MaterialPage(child: const HomeScreen()),
+                routes: [
+                  GoRoute(
+                    path: RoutePaths.productDetails,
+                    name: RouteNames.productDetails,
+                    pageBuilder: (context, state) {
+                      final product = state.extra as Product;
+
+                      return MaterialPage(
+                        child: ProductDetailsScreen(product: product),
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),

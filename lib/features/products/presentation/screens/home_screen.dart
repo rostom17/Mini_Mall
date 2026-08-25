@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import 'package:mini_mall/core/constants/app_urls.dart';
 import 'package:mini_mall/core/errors/failure.dart';
+import 'package:mini_mall/app/router/route_names.dart';
 import 'package:mini_mall/features/products/domain/entities/product.dart';
 import 'package:mini_mall/features/products/presentation/controllers/product_list_controller.dart';
 
@@ -56,12 +59,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         data: (listState) => RefreshIndicator(
           onRefresh: () =>
               ref.read(productListControllerProvider.notifier).refresh(),
-          child: ListView.builder(
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 250,
+            ),
             controller: _scrollController,
+
             itemCount: listState.products.length + 1,
             itemBuilder: (context, index) {
               if (index < listState.products.length) {
-                return ProductTile(product: listState.products[index]);
+                return ProductTile(
+                  product: listState.products[index],
+                  index: index,
+                );
               }
               return _ListFooter(
                 isLoadingMore: listState.isLoadingMore,
@@ -135,15 +145,40 @@ class _InitialLoadError extends StatelessWidget {
 }
 
 class ProductTile extends StatelessWidget {
-  const ProductTile({super.key, required this.product});
+  const ProductTile({super.key, required this.product, required this.index});
 
   final Product product;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
-    return Card.outlined(
-      margin: EdgeInsets.all(12),
-      child: SizedBox(height: 54, child: Center(child: Text(product.title))),
+    return InkWell(
+      onTap: () {
+        context.pushNamed(RouteNames.productDetails, extra: product);
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Image.network(
+                product.photos.isNotEmpty
+                    ? product.photos[0]
+                    : AppUrls.placeHolderImage,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) =>
+                    Icon(Icons.broken_image),
+              ),
+            ),
+            Text(product.title),
+            Text(product.id),
+          ],
+        ),
+      ),
     );
   }
 }
