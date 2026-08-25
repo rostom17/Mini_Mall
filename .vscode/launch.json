@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        //default config
+        {
+            "name": "mini_mall",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "mini_mall (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "mini_mall (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        // my custom config
+        {
+            "name": "Flutter • iPhone 17",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "67474B69-351E-46EC-B4E7-428FC6DF1921"
+        },
+        {
+            "name": "Flutter • iPad Pro 11",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "E309AA75-C0A0-452A-902E-95C3D9D9635B"
+        },
+    ],
+    "compounds": [
+        {
+            "name": "Flutter • iPhone + iPad",
+            "configurations": [
+                "Flutter • iPhone 17",
+                "Flutter • iPad Pro 11"
+            ],
+            "stopAll": true
+        }
+    ]
+}
