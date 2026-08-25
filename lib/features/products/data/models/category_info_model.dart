@@ -14,7 +14,7 @@ abstract class CategoryInfoModel
   const CategoryInfoModel._();
 
   const factory CategoryInfoModel({
-    required String? id,
+    @JsonKey(name: "_id") required String? id,
     required String? title,
     required String? slug,
     required String? icon,

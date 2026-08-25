@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProductModel {
 
- String? get id; String? get title; BrandInfoModel? get brand; List<CategoryInfoModel>? get categories; String? get slug; String? get metaDescription; String? get description; List<String>? get photos; List<String>? get colors; List<String>? get sizes; List<String>? get tags; int? get regularPrice; int? get currentPrice; int? get quantity; DateTime? get createdAt; DateTime? get updatedAt;
+@JsonKey(name: "_id") String? get id; String? get title; BrandInfoModel? get brand; List<CategoryInfoModel>? get categories; String? get slug;@JsonKey(name: "meta_description") String? get metaDescription; String? get description; List<String>? get photos; List<String>? get colors; List<String>? get sizes; List<String>? get tags;@JsonKey(name: "regular_price") int? get regularPrice;@JsonKey(name: "current_price") int? get currentPrice; int? get quantity;@JsonKey(name: "createdAt") DateTime? get createdAt;@JsonKey(name: "updatedAt") DateTime? get updatedAt;
 /// Create a copy of ProductModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ProductModelCopyWith<$Res>  {
   factory $ProductModelCopyWith(ProductModel value, $Res Function(ProductModel) _then) = _$ProductModelCopyWithImpl;
 @useResult
 $Res call({
- String? id, String? title, BrandInfoModel? brand, List<CategoryInfoModel>? categories, String? slug, String? metaDescription, String? description, List<String>? photos, List<String>? colors, List<String>? sizes, List<String>? tags, int? regularPrice, int? currentPrice, int? quantity, DateTime? createdAt, DateTime? updatedAt
+@JsonKey(name: "_id") String? id, String? title, BrandInfoModel? brand, List<CategoryInfoModel>? categories, String? slug,@JsonKey(name: "meta_description") String? metaDescription, String? description, List<String>? photos, List<String>? colors, List<String>? sizes, List<String>? tags,@JsonKey(name: "regular_price") int? regularPrice,@JsonKey(name: "current_price") int? currentPrice, int? quantity,@JsonKey(name: "createdAt") DateTime? createdAt,@JsonKey(name: "updatedAt") DateTime? updatedAt
 });
 
 
@@ -180,7 +180,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id,  String? title,  BrandInfoModel? brand,  List<CategoryInfoModel>? categories,  String? slug,  String? metaDescription,  String? description,  List<String>? photos,  List<String>? colors,  List<String>? sizes,  List<String>? tags,  int? regularPrice,  int? currentPrice,  int? quantity,  DateTime? createdAt,  DateTime? updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "_id")  String? id,  String? title,  BrandInfoModel? brand,  List<CategoryInfoModel>? categories,  String? slug, @JsonKey(name: "meta_description")  String? metaDescription,  String? description,  List<String>? photos,  List<String>? colors,  List<String>? sizes,  List<String>? tags, @JsonKey(name: "regular_price")  int? regularPrice, @JsonKey(name: "current_price")  int? currentPrice,  int? quantity, @JsonKey(name: "createdAt")  DateTime? createdAt, @JsonKey(name: "updatedAt")  DateTime? updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProductModel() when $default != null:
 return $default(_that.id,_that.title,_that.brand,_that.categories,_that.slug,_that.metaDescription,_that.description,_that.photos,_that.colors,_that.sizes,_that.tags,_that.regularPrice,_that.currentPrice,_that.quantity,_that.createdAt,_that.updatedAt);case _:
@@ -201,7 +201,7 @@ return $default(_that.id,_that.title,_that.brand,_that.categories,_that.slug,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id,  String? title,  BrandInfoModel? brand,  List<CategoryInfoModel>? categories,  String? slug,  String? metaDescription,  String? description,  List<String>? photos,  List<String>? colors,  List<String>? sizes,  List<String>? tags,  int? regularPrice,  int? currentPrice,  int? quantity,  DateTime? createdAt,  DateTime? updatedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "_id")  String? id,  String? title,  BrandInfoModel? brand,  List<CategoryInfoModel>? categories,  String? slug, @JsonKey(name: "meta_description")  String? metaDescription,  String? description,  List<String>? photos,  List<String>? colors,  List<String>? sizes,  List<String>? tags, @JsonKey(name: "regular_price")  int? regularPrice, @JsonKey(name: "current_price")  int? currentPrice,  int? quantity, @JsonKey(name: "createdAt")  DateTime? createdAt, @JsonKey(name: "updatedAt")  DateTime? updatedAt)  $default,) {final _that = this;
 switch (_that) {
 case _ProductModel():
 return $default(_that.id,_that.title,_that.brand,_that.categories,_that.slug,_that.metaDescription,_that.description,_that.photos,_that.colors,_that.sizes,_that.tags,_that.regularPrice,_that.currentPrice,_that.quantity,_that.createdAt,_that.updatedAt);case _:
@@ -221,7 +221,7 @@ return $default(_that.id,_that.title,_that.brand,_that.categories,_that.slug,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id,  String? title,  BrandInfoModel? brand,  List<CategoryInfoModel>? categories,  String? slug,  String? metaDescription,  String? description,  List<String>? photos,  List<String>? colors,  List<String>? sizes,  List<String>? tags,  int? regularPrice,  int? currentPrice,  int? quantity,  DateTime? createdAt,  DateTime? updatedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "_id")  String? id,  String? title,  BrandInfoModel? brand,  List<CategoryInfoModel>? categories,  String? slug, @JsonKey(name: "meta_description")  String? metaDescription,  String? description,  List<String>? photos,  List<String>? colors,  List<String>? sizes,  List<String>? tags, @JsonKey(name: "regular_price")  int? regularPrice, @JsonKey(name: "current_price")  int? currentPrice,  int? quantity, @JsonKey(name: "createdAt")  DateTime? createdAt, @JsonKey(name: "updatedAt")  DateTime? updatedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _ProductModel() when $default != null:
 return $default(_that.id,_that.title,_that.brand,_that.categories,_that.slug,_that.metaDescription,_that.description,_that.photos,_that.colors,_that.sizes,_that.tags,_that.regularPrice,_that.currentPrice,_that.quantity,_that.createdAt,_that.updatedAt);case _:
@@ -236,10 +236,10 @@ return $default(_that.id,_that.title,_that.brand,_that.categories,_that.slug,_th
 @JsonSerializable()
 
 class _ProductModel extends ProductModel {
-  const _ProductModel({required this.id, required this.title, required this.brand, required final  List<CategoryInfoModel>? categories, required this.slug, required this.metaDescription, required this.description, required final  List<String>? photos, required final  List<String>? colors, required final  List<String>? sizes, required final  List<String>? tags, required this.regularPrice, required this.currentPrice, required this.quantity, required this.createdAt, required this.updatedAt}): _categories = categories,_photos = photos,_colors = colors,_sizes = sizes,_tags = tags,super._();
+  const _ProductModel({@JsonKey(name: "_id") required this.id, required this.title, required this.brand, required final  List<CategoryInfoModel>? categories, required this.slug, @JsonKey(name: "meta_description") required this.metaDescription, required this.description, required final  List<String>? photos, required final  List<String>? colors, required final  List<String>? sizes, required final  List<String>? tags, @JsonKey(name: "regular_price") required this.regularPrice, @JsonKey(name: "current_price") required this.currentPrice, required this.quantity, @JsonKey(name: "createdAt") required this.createdAt, @JsonKey(name: "updatedAt") required this.updatedAt}): _categories = categories,_photos = photos,_colors = colors,_sizes = sizes,_tags = tags,super._();
   factory _ProductModel.fromJson(Map<String, dynamic> json) => _$ProductModelFromJson(json);
 
-@override final  String? id;
+@override@JsonKey(name: "_id") final  String? id;
 @override final  String? title;
 @override final  BrandInfoModel? brand;
  final  List<CategoryInfoModel>? _categories;
@@ -252,7 +252,7 @@ class _ProductModel extends ProductModel {
 }
 
 @override final  String? slug;
-@override final  String? metaDescription;
+@override@JsonKey(name: "meta_description") final  String? metaDescription;
 @override final  String? description;
  final  List<String>? _photos;
 @override List<String>? get photos {
@@ -290,11 +290,11 @@ class _ProductModel extends ProductModel {
   return EqualUnmodifiableListView(value);
 }
 
-@override final  int? regularPrice;
-@override final  int? currentPrice;
+@override@JsonKey(name: "regular_price") final  int? regularPrice;
+@override@JsonKey(name: "current_price") final  int? currentPrice;
 @override final  int? quantity;
-@override final  DateTime? createdAt;
-@override final  DateTime? updatedAt;
+@override@JsonKey(name: "createdAt") final  DateTime? createdAt;
+@override@JsonKey(name: "updatedAt") final  DateTime? updatedAt;
 
 /// Create a copy of ProductModel
 /// with the given fields replaced by the non-null parameter values.
@@ -329,7 +329,7 @@ abstract mixin class _$ProductModelCopyWith<$Res> implements $ProductModelCopyWi
   factory _$ProductModelCopyWith(_ProductModel value, $Res Function(_ProductModel) _then) = __$ProductModelCopyWithImpl;
 @override @useResult
 $Res call({
- String? id, String? title, BrandInfoModel? brand, List<CategoryInfoModel>? categories, String? slug, String? metaDescription, String? description, List<String>? photos, List<String>? colors, List<String>? sizes, List<String>? tags, int? regularPrice, int? currentPrice, int? quantity, DateTime? createdAt, DateTime? updatedAt
+@JsonKey(name: "_id") String? id, String? title, BrandInfoModel? brand, List<CategoryInfoModel>? categories, String? slug,@JsonKey(name: "meta_description") String? metaDescription, String? description, List<String>? photos, List<String>? colors, List<String>? sizes, List<String>? tags,@JsonKey(name: "regular_price") int? regularPrice,@JsonKey(name: "current_price") int? currentPrice, int? quantity,@JsonKey(name: "createdAt") DateTime? createdAt,@JsonKey(name: "updatedAt") DateTime? updatedAt
 });
 
 

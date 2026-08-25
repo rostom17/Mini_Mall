@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BrandInfoModel {
 
- String? get id; String? get title; String? get slug; String? get icon;
+@JsonKey(name: "_id") String? get id; String? get title; String? get slug; String? get icon;
 /// Create a copy of BrandInfoModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $BrandInfoModelCopyWith<$Res>  {
   factory $BrandInfoModelCopyWith(BrandInfoModel value, $Res Function(BrandInfoModel) _then) = _$BrandInfoModelCopyWithImpl;
 @useResult
 $Res call({
- String? id, String? title, String? slug, String? icon
+@JsonKey(name: "_id") String? id, String? title, String? slug, String? icon
 });
 
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id,  String? title,  String? slug,  String? icon)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "_id")  String? id,  String? title,  String? slug,  String? icon)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BrandInfoModel() when $default != null:
 return $default(_that.id,_that.title,_that.slug,_that.icon);case _:
@@ -177,7 +177,7 @@ return $default(_that.id,_that.title,_that.slug,_that.icon);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id,  String? title,  String? slug,  String? icon)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "_id")  String? id,  String? title,  String? slug,  String? icon)  $default,) {final _that = this;
 switch (_that) {
 case _BrandInfoModel():
 return $default(_that.id,_that.title,_that.slug,_that.icon);case _:
@@ -197,7 +197,7 @@ return $default(_that.id,_that.title,_that.slug,_that.icon);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id,  String? title,  String? slug,  String? icon)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "_id")  String? id,  String? title,  String? slug,  String? icon)?  $default,) {final _that = this;
 switch (_that) {
 case _BrandInfoModel() when $default != null:
 return $default(_that.id,_that.title,_that.slug,_that.icon);case _:
@@ -212,10 +212,10 @@ return $default(_that.id,_that.title,_that.slug,_that.icon);case _:
 @JsonSerializable()
 
 class _BrandInfoModel extends BrandInfoModel {
-  const _BrandInfoModel({required this.id, required this.title, required this.slug, required this.icon}): super._();
+  const _BrandInfoModel({@JsonKey(name: "_id") required this.id, required this.title, required this.slug, required this.icon}): super._();
   factory _BrandInfoModel.fromJson(Map<String, dynamic> json) => _$BrandInfoModelFromJson(json);
 
-@override final  String? id;
+@override@JsonKey(name: "_id") final  String? id;
 @override final  String? title;
 @override final  String? slug;
 @override final  String? icon;
@@ -253,7 +253,7 @@ abstract mixin class _$BrandInfoModelCopyWith<$Res> implements $BrandInfoModelCo
   factory _$BrandInfoModelCopyWith(_BrandInfoModel value, $Res Function(_BrandInfoModel) _then) = __$BrandInfoModelCopyWithImpl;
 @override @useResult
 $Res call({
- String? id, String? title, String? slug, String? icon
+@JsonKey(name: "_id") String? id, String? title, String? slug, String? icon
 });
 
 

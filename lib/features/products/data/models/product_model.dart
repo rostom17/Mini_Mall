@@ -17,22 +17,28 @@ abstract class ProductModel
   const ProductModel._();
 
   const factory ProductModel({
-    required String? id,
+    @JsonKey(name: "_id") required String? id,
+
     required String? title,
     required BrandInfoModel? brand,
     required List<CategoryInfoModel>? categories,
     required String? slug,
-    required String? metaDescription,
+
+    @JsonKey(name: "meta_description") required String? metaDescription,
+
     required String? description,
     required List<String>? photos,
     required List<String>? colors,
     required List<String>? sizes,
     required List<String>? tags,
-    required int? regularPrice,
-    required int? currentPrice,
+
+    @JsonKey(name: "regular_price") required int? regularPrice,
+    @JsonKey(name: "current_price") required int? currentPrice,
+
     required int? quantity,
-    required DateTime? createdAt,
-    required DateTime? updatedAt,
+
+    @JsonKey(name: "createdAt") required DateTime? createdAt,
+    @JsonKey(name: "updatedAt") required DateTime? updatedAt,
   }) = _ProductModel;
 
   factory ProductModel.fromJson(Map<String, dynamic> json) =>

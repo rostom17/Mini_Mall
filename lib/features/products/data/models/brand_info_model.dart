@@ -14,7 +14,8 @@ abstract class BrandInfoModel
   const BrandInfoModel._();
 
   const factory BrandInfoModel({
-    required String? id,
+    @JsonKey(name: "_id") required String? id,
+
     required String? title,
     required String? slug,
     required String? icon,

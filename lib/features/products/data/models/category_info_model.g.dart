@@ -8,7 +8,7 @@ part of 'category_info_model.dart';
 
 _CategoryInfoModel _$CategoryInfoModelFromJson(Map<String, dynamic> json) =>
     _CategoryInfoModel(
-      id: json['id'] as String?,
+      id: json['_id'] as String?,
       title: json['title'] as String?,
       slug: json['slug'] as String?,
       icon: json['icon'] as String?,
@@ -16,7 +16,7 @@ _CategoryInfoModel _$CategoryInfoModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CategoryInfoModelToJson(_CategoryInfoModel instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'title': instance.title,
       'slug': instance.slug,
       'icon': instance.icon,
