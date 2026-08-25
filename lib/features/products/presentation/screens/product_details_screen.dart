@@ -15,12 +15,15 @@ class ProductDetailsScreen extends ConsumerWidget {
       body: Center(
         child: Column(
           children: [
-            Image.network(
-              _product.photos.isNotEmpty
-                  ? _product.photos[0]
-                  : AppUrls.placeHolderImage,
-              errorBuilder: (context, error, stackTrace) =>
-                  Icon(Icons.broken_image),
+            Hero(
+              tag: _product.id,
+              child: Image.network(
+                _product.photos.isNotEmpty
+                    ? _product.photos[0]
+                    : AppUrls.placeHolderImage,
+                errorBuilder: (context, error, stackTrace) =>
+                    Icon(Icons.broken_image),
+              ),
             ),
             Text(_product.title),
           ],
